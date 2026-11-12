@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Свежий стол — интернет-магазин свежих продуктов с удобной доставкой. Овощи, фрукты, молочные продукты, мясо и выпечка по доступным ценам.">
+<meta name="keywords" content="Свежий стол, продукты с доставкой, свежие овощи, фрукты, молочные продукты, продуктовый магазин">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="website">
+<meta property="og:title" content="Свежий стол — свежие про" content="#1a0f2e">
+  <meta property="og:typeдукты каждый день">
+<meta property="og:description" content="Заказывайте свежие продукты с доставкой. Первый заказ — со скидкой 15%.">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://example.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OnlineStore",
+  "name": "Свежий стол",
+  "description": "Интернет-магазин свежих продуктов с доставкой",
+  "inLanguage": "ru",
+  "priceRange": "₽₽",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Каталог продуктов"
+  }
+}
+</script>
+<title>«Свежий стол» — продукты питания с доставкой</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ================= БАЗА ================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #2a2438;
+  line-height: 1.6;
+  background: #f7f3ee;
+  background-image: radial-gradient(circle at 20% 10%, rgba(94, 53, 177, 0.03), transparent 40%),
+                    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.04), transparent 40%);
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 700; letter-spacing: -0.02em; }
+
+/* ================= HEADER ================= */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.85rem 2.5rem;
+  background: linear-gradient(135deg, #1a0f2e 0%, #2d1b4e 100%);
+  color: #f8f4ef;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 24px rgba(26, 15, 46, 0.35);
+  backdrop-filter: blur(10px);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #f8f4ef;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.35rem;
+  cursor: pointer;
+  font-family: "Playfair Display", serif;
+}
+.logo .mark {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, #d4af37, #f0d878);
+  color: #1a0f2e;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.4rem;
+  font-weight: 900;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+.main-nav ul {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+.main-nav a {
+  color: #f0e6d8;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, #d4af37, #f0d878);
+  transition: width .3s ease;
+}
+.main-nav a:hover::after,
+.main-nav a.active::after { width: 100%; }
+.badge {
+  background: #e91e63;
+  border-radius: 12px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  font-weight: 600;
+}
+.burger {
+  display: none;
+  background: none; border: none;
+  color: #f8f4ef; font-size: 1.7rem; cursor: pointer;
+}
+
+/* ================= КНОПКИ ================= */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #5e35b1, #7e57c2);
+  color: #fff;
+  padding: 0.75rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all .25s ease;
+  box-shadow: 0 4px 14px rgba(94, 53, 177, 0.3);
+}
+.btn:hover {
+  background: linear-gradient(135deg, #4527a0, #5e35b1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(94, 53, 177, 0.4);
+}
+.btn.secondary {
+  background: linear-gradient(135deg, #d4af37, #f0d878);
+  color: #1a0f2e;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+}
+.btn.secondary:hover {
+  background: linear-gradient(135deg, #c19b2e, #e0c86a);
+}
+.btn.ghost {
+  background: transparent;
+  color: #5e35b1;
+  border: 2px solid #5e35b1;
+  box-shadow: none;
+}
+.btn.ghost:hover {
+  background: rgba(94, 53, 177, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ================= СТРАНИЦЫ ================= */
+.page { display: none; }
+.page.active { display: block; animation: fadeIn .4s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= HERO ================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+  padding: 4.5rem 2.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #1a0f2e, #5e35b1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15;
+}
+.hero-content p {
+  font-size: 1.15rem;
+  color: #4a4458;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.hero-visual img {
+  max-width: 420px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(26, 15, 46, 0.25);
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+}
+.floating-badge {
+  position: absolute;
+  background: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  color: #1a0f2e;
+}
+.badge-1 { top: 10%; left: 5%; }
+.badge-2 { bottom: 15%; right: 0; }
+
+/* ================= КАТАЛОГ ================= */
+.catalog {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2.5rem;
+  padding: 2rem 2.5rem 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.catalog h2 {
+  grid-column: 1 / -1;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #1a0f2e;
+}
+.filters {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(26, 15, 46, 0.06);
+  align-self: start;
+  border: 1px solid rgba(94, 53, 177, 0.08);
+}
+.filters h3 { margin-bottom: 1rem; font-size: 1.1rem; color: #2d1b4e; }
+.filters ul { list-style: none; }
+.filters li { margin: 0.6rem 0; }
+.filters label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.filters input[type="checkbox"] {
+  accent-color: #5e35b1;
+  width: 16px; height: 16px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 24px rgba(26, 15, 46, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform .35s cubic-bezier(.25,.8,.25,1), box-shadow .35s ease;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(26, 15, 46, 0.12);
+}
+.card figure {
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #f8f4ef, #efe8dc);
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  margin-bottom: 0.75rem;
+}
+.card figure .emoji { transition: transform .4s ease; }
+.card:hover figure .emoji { transform: scale(1.15) rotate(-3deg); }
+.card figcaption {
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: #1a0f2e;
+}
+.card .price {
+  font-weight: 700;
+  color: #c62828;
+  margin: 0.6rem 0 1rem;
+  font-size: 1.15rem;
+}
+.card .actions { display: flex; gap: 0.6rem; margin-top: auto; width: 100%; }
+.card .btn { flex: 1; padding: 0.55rem 0.8rem; font-size: 0.9rem; text-align: center; }
+
+/* ================= СТРАНИЦА ТОВАРА ================= */
+.product-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.product-view .gallery {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(26, 15, 46, 0.1);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: 10rem;
+  overflow: hidden;
+  border: 1px solid rgba(94, 53, 177, 0.1);
+}
+.product-view .gallery .emoji { transition: transform .5s ease; }
+.product-view .gallery:hover .emoji { transform: scale(1.1) rotate(-4deg); }
+.product-info h1 { margin-bottom: 1rem; font-size: 2.2rem; color: #1a0f2e; }
+.product-info .price { font-size: 2.2rem; color: #c62828; margin: 1.2rem 0; font-weight: 700; }
+.product-info .desc { color: #5a5368; margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.7; }
+.product-info .btn { margin-right: 0.75rem; margin-bottom: 0.5rem; }
+
+/* ================= ФОТО ТОВАРОВ ================= */
+.card figure img,
+.product-view .gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6%;
+  mix-blend-mode: multiply; /* белый фон фото сливается с фоном карточки */
+  transition: transform .4s ease;
+}
+.card:hover figure img { transform: scale(1.08) rotate(-2deg); }
+.product-view .gallery:hover img { transform: scale(1.06); }
+.cart-table td .thumb {
+  width: 56px; height: 56px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f8f4ef;
+  mix-blend-mode: multiply;
+}
+
+/* ================= КОРЗИНА ================= */
+.cart-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+.cart-wrap h1 { font-size: 2.2rem; margin-bottom: 1.5rem; color: #1a0f2e; }
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(26, 15, 46, 0.08);
+}
+.cart-table th, .cart-table td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid #f0ece6;
+}
+.cart-table th { background: #f8f4ef; font-weight: 600; color: #2d1b4e; }
+.cart-table td .emoji { font-size: 1.8rem; }
+.qty { display: inline-flex; align-items: center; gap: 0.5rem; }
+.qty button {
+  width: 32px; height: 32px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all .2s ease;
+}
+.qty button:hover { background: #f0e6ff; border-color: #5e35b1; }
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.75rem;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(135deg, #fff8e1, #fff3c4);
+  border-radius: 14px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a0f2e;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* ================= ФОРМА ================= */
+.subscribe, .order-form {
+  background: linear-gradient(135deg, #1a0f2e, #2d1b4e);
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  color: #f8f4ef;
+}
+.subscribe h2, .order-form h1 { color: #f8f4ef; margin-bottom: 0.5rem; }
+.subscribe form, .order-form form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  max-width: 720px;
+  margin-inline: auto;
+}
+input, select, textarea {
+  padding: 0.75rem 1.1rem;
+  border: 2px solid #e0d8cc;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color .3s ease, box-shadow .3s ease;
+  width: 100%;
+  background: #fff;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #5e35b1;
+  box-shadow: 0 0 0 4px rgba(94, 53, 177, 0.15);
+}
+.order-form form { flex-direction: column; text-align: left; }
+.order-form label { font-weight: 600; margin-top: 0.8rem; color: #f0e6d8; }
+.order-form .btn { align-self: center; margin-top: 1.5rem; }
+
+/* ================= FOOTER ================= */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem 2.5rem;
+  background: #120a1c;
+  color: #c9c0d4;
+  font-size: 0.92rem;
+}
+.site-footer a { color: #d4af37; margin-left: 1.2rem; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+
+/* ================= EMAIL / SEO ================= */
+.cart-wrap.order-form h1 { color: #1a0f2e; }
+.cart-wrap.order-form label { color: #2d1b4e; }
+.mailing-page { max-width: 1040px; margin: 2.5rem auto; padding: 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 12px 40px rgba(26,15,46,.09); overflow: hidden; }
+.mailing-topline { padding: .8rem 1rem; text-align: center; color: #5e35b1; font-weight: 700; letter-spacing: .16em; border-bottom: 1px solid #eee8f5; }
+.mailing-topline span { color: #d4af37; padding: 0 .4rem; }
+.mailing-hero { display: grid; grid-template-columns: .9fr 1.1fr; gap: 2rem; align-items: center; padding: 2.2rem 1rem; }
+.mailing-copy h1 { color: #1a0f2e; font-size: clamp(2rem,4vw,3.2rem); line-height: 1.12; margin: .5rem 0 1rem; }
+.mailing-copy p:not(.mailing-kicker) { color: #5a5368; margin-bottom: 1.5rem; }
+.mailing-kicker, .offer-label { color: #8a6b18; font-size: .78rem; font-weight: 700; letter-spacing: .13em; }
+.mailing-image { width: 100%; height: auto; max-height: 460px; border-radius: 16px; object-fit: contain; background: #000; }
+.mailing-offer { margin: .5rem 1rem 2rem; padding: 1.4rem; text-align: center; color: #fff; background: linear-gradient(120deg,#2d1b4e,#5e35b1); border-radius: 16px; }
+.mailing-offer strong { display: block; color: #f0d878; font-family: "Playfair Display",serif; font-size: 3.2rem; line-height: 1.2; }
+.mailing-offer p { margin-top: .35rem; }
+.mailing-products { padding: 0 1rem 2rem; text-align: center; }
+.mailing-products h2, .mailing-bottom h2 { color: #1a0f2e; margin-bottom: 1.2rem; }
+.mailing-product-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.mailing-product-grid div { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: 1.2rem .8rem; background: #f8f4ef; border-radius: 14px; }
+.mailing-product-grid span { font-size: 2.3rem; }
+.mailing-product-grid img { width: 120px; height: 120px; object-fit: contain; mix-blend-mode: multiply; }
+.mailing-product-grid b { color: #2d1b4e; }
+.mailing-product-grid small { color: #6d6678; }
+.mailing-bottom { padding: 2rem 1rem 1rem; text-align: center; background: #faf7f2; border-radius: 16px; }
+.mailing-bottom p { color: #5a5368; margin-bottom: 1rem; }
+.mailing-bottom .mailing-small { max-width: 620px; margin: 1.5rem auto 0; color: #898291; font-size: .78rem; }
+
+/* ================= АДАПТАЦИЯ: 1280 / 1000 / 768 / 320 ================= */
+@media (max-width: 1279px) {
+  .hero, .catalog { max-width: 1120px; }
+  .hero { gap: 2rem; padding-inline: 2rem; }
+  .catalog { padding-inline: 2rem; gap: 1.75rem; }
+}
+@media (max-width: 999px) {
+  .hero { grid-template-columns: 1fr; text-align: center; padding: 3rem 1.5rem; }
+  .hero-content p { margin-inline: auto; }
+  .hero-visual img { max-width: 360px; }
+  .catalog { grid-template-columns: 1fr; padding: 1.5rem; }
+  .filters { order: -1; }
+  .product-view { grid-template-columns: 1fr; padding: 2rem 1.5rem; max-width: 720px; }
+  .product-view .gallery { font-size: 7rem; }
+  .mailing-page { margin: 1.5rem; }
+}
+@media (max-width: 767px) {
+  .site-header { flex-wrap: wrap; padding: .8rem 1rem; gap: .5rem; }
+  .logo { font-size: 1.15rem; }
+  .logo .mark { width: 38px; height: 38px; }
+  .burger { display: block; margin-left: auto; }
+  .main-nav { order: 3; width: 100%; }
+  .main-nav ul { display: none; flex-direction: column; gap: .8rem; padding: .8rem 0 .4rem; }
+  .main-nav.open ul { display: flex; }
+  .main-nav a { display: inline-block; }
+  .hero { padding: 2.3rem 1rem; }
+  .hero-content h1 { font-size: clamp(2rem,8vw,2.8rem); }
+  .hero-content p { font-size: 1rem; }
+  .hero-visual img { max-width: min(100%,320px); }
+  .floating-badge { font-size: .72rem; padding: .45rem .7rem; }
+  .badge-1 { left: 0; }
+  .badge-2 { right: 0; }
+  .catalog { padding: 1.2rem 1rem 2rem; }
+  .catalog h2 { font-size: 1.8rem; }
+  .products { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .9rem; }
+  .card { padding: .8rem; }
+  .card .actions { flex-direction: column; }
+  .card .btn { width: 100%; }
+  .product-view { padding: 1.5rem 1rem; gap: 1.5rem; }
+  .product-info h1, .product-info .price { font-size: 1.8rem; }
+  .cart-wrap { padding: 1.5rem 1rem; }
+  .cart-table th, .cart-table td { padding: .65rem .45rem; font-size: .85rem; }
+  .cart-table th:nth-child(2), .cart-table td:nth-child(2) { display: none; }
+  .qty { gap: .25rem; }
+  .qty button { width: 28px; height: 28px; }
+  .cart-total { font-size: 1.05rem; padding: 1rem; }
+  .subscribe, .order-form { padding: 2.2rem 1rem; }
+  .subscribe form { flex-direction: column; align-items: stretch; }
+  .subscribe form input { max-width: none !important; }
+  .site-footer { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem 1rem; }
+  .site-footer a { margin: .3rem .5rem; }
+  .mailing-page { margin: 1rem; padding: .8rem; }
+  .mailing-hero { grid-template-columns: 1fr; padding: 1.3rem .4rem; gap: 1.2rem; }
+  .mailing-copy { text-align: center; }
+  .mailing-product-grid { grid-template-columns: 1fr; }
+  .mailing-offer { margin-inline: .4rem; }
+}
+@media (max-width: 420px) {
+  body { font-size: 14px; }
+  .site-header { padding: .65rem .75rem; }
+  .logo { font-size: 1.02rem; gap: .45rem; }
+  .logo .mark { width: 34px; height: 34px; font-size: 1.15rem; }
+  .hero { padding: 1.8rem .85rem; gap: 1.3rem; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-visual img { max-width: 260px; }
+  .floating-badge { font-size: .65rem; }
+  .products { grid-template-columns: 1fr; }
+  .card .actions { flex-direction: row; }
+  .card .btn { padding: .55rem .4rem; font-size: .82rem; }
+  .filters { padding: 1rem; }
+  .cart-table { font-size: .78rem; }
+  .cart-table th, .cart-table td { padding: .5rem .25rem; }
+  .cart-table th:nth-child(3), .cart-table td:nth-child(3) { display: none; }
+  .cart-table .btn { padding: .25rem .45rem !important; }
+  .mailing-page { margin: .5rem; padding: .6rem; border-radius: 12px; }
+  .mailing-copy h1 { font-size: 1.9rem; }
+  .mailing-topline { font-size: .72rem; letter-spacing: .1em; }
+  .mailing-offer strong { font-size: 2.7rem; }
+  .mailing-bottom { padding: 1.5rem .75rem; }
+  .cart-total { gap: .5rem; }
+}
+</style>
+</head>
+<body>
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <a class="logo" onclick="navigate('home')">
+    <span class="mark">🌿</span>
+    <span>Свежий стол</span>
+  </a>
+  <nav class="main-nav" id="mainNav">
+    <ul>
+      <li><a onclick="navigate('home')" data-page="home" class="active">Каталог</a></li>
+      <li><a onclick="navigate('product')" data-page="product">Товар</a></li>
+      <li><a onclick="navigate('cart')" data-page="cart">Корзина <span class="badge" id="cartBadge">0</span></a></li>
+      <li><a onclick="navigate('checkout')" data-page="checkout">Оформить заказ</a></li>
+      <li><a onclick="navigate('newsletter')" data-page="newsletter">Рассылка</a></li>
+    </ul>
+  </nav>
+  <button class="burger" id="burger" aria-label="Открыть меню">☰</button>
+</header>
+<main>
+<!-- ================= СТРАНИЦА: ГЛАВНАЯ ================= -->
+<section class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Свежие продукты<br>каждый день</h1>
+      <p>Доставим за 2 часа по городу. Первый заказ — со скидкой 15%. Только свежее и качественное.</p>
+      <a class="btn" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Перейти в каталог</a>
+    </div>
+    <div class="hero-visual">
+      <img src="images/mascot.jpg" loading="lazy" width="420" height="630" alt="Персонаж «Свежий стол» с корзиной овощей">
+      <div class="floating-badge badge-1">✨ Доставка 2 часа</div>
+      <div class="floating-badge badge-2">🌿 Без ГМО</div>
+    </div>
+  </div>
+  <div class="catalog" id="catalog">
+    <h2>Каталог товаров</h2>
+    <aside class="filters">
+      <h3>Категории</h3>
+      <ul>
+        <li><label><input type="checkbox" checked> Овощи и фрукты</label></li>
+        <li><label><input type="checkbox"> Молочные продукты</label></li>
+        <li><label><input type="checkbox"> Мясо и птица</label></li>
+        <li><label><input type="checkbox"> Хлеб и выпечка</label></li>
+      </ul>
+    </aside>
+    <div class="products" id="productsGrid"><!-- заполняется JS --></div>
+  </div>
+  <section class="subscribe">
+    <h2>Подпишитесь на скидки</h2>
+    <p style="opacity:0.85; margin-bottom:0.5rem">Узнавайте первыми о свежих поставках и акциях</p>
+    <form id="subscribeForm" novalidate>
+      <input type="email" id="email" name="email" required
+             placeholder="you@example.com" pattern=".+@.+\..+"
+             title="Введите корректный e-mail" style="max-width:320px">
+      <button type="submit" class="btn secondary">Подписаться</button>
+    </form>
+  </section>
+</section>
+<!-- ================= СТРАНИЦА: ТОВАР ================= -->
+<section class="page" id="page-product">
+  <div class="product-view">
+    <div class="gallery"><img id="pvImg" src="images/apples.jpg" alt="Яблоки «Гала»"></div>
+    <div class="product-info">
+      <h1 id="pvName">Яблоки «Гала»</h1>
+      <p class="desc" id="pvDesc">Сладкие хрустящие яблоки сорта Гала. Выращены без ГМО, идеальны для перекуса и выпечки.</p>
+      <p class="price" id="pvPrice">149 ₽ / кг</p>
+      <button class="btn" onclick="addToCart(currentProductId)">Добавить в корзину</button>
+      <button class="btn ghost" onclick="navigate('home')">← Назад в каталог</button>
+    </div>
+  </div>
+</section>
+<!-- ================= СТРАНИЦА: КОРЗИНА ================= -->
+<section class="page" id="page-cart">
+  <div class="cart-wrap">
+    <h1>Корзина</h1>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Товар</th>
+          <th>Название</th>
+          <th>Цена</th>
+          <th>Кол-во</th>
+          <th>Сумма</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
+    <div class="cart-total">
+      <span>Итого:</span>
+      <span id="cartTotal">0 ₽</span>
+    </div>
+    <div style="text-align:right; margin-top:1.5rem">
+      <button class="btn secondary" onclick="navigate('checkout')">Оформить заказ →</button>
+    </div>
+  </div>
+</section>
+<!-- ================= СТРАНИЦА: ЭЛЕКТРОННАЯ РАССЫЛКА ================= -->
+<section class="page" id="page-newsletter">
+  <article class="mailing-page" aria-labelledby="mailing-title">
+    <div class="mailing-topline">СВЕЖИЙ СТОЛ <span>•</span> ПИСЬМО ДЛЯ ВАС</div>
+    <div class="mailing-hero">
+      <div class="mailing-copy">
+        <p class="mailing-kicker">ВКУСНО. СВЕЖО. С ЗАБОТОЙ.</p>
+        <h1 id="mailing-title">Свежесть начинается с выбора!</h1>
+        <p>Собрали для вас лучшие продукты недели — от сочных овощей до фермерских деликатесов. Выбирайте любимое, а мы бережно доставим заказ к вашей двери.</p>
+        <a class="btn secondary" href="#catalog" onclick="navigate('home'); setTimeout(() => document.getElementById('catalog').scrollIntoView({behavior:'smooth'}), 50); return false;">Выбрать продукты</a>
+      </div>
+      <img class="mailing-image" src="images/lh.jfif" alt="Иллюстрация персонажа Свежий стол с корзиной свежих овощей" width="1024" height="1536" loading="lazy">
+    </div>
+    <div class="mailing-offer">
+      <span class="offer-label">СПЕЦИАЛЬНО ДЛЯ ВАС</span>
+      <strong>−15%</strong>
+      <p>на первый заказ по промокоду <b>FRESH15</b></p>
+    </div>
+    <div class="mailing-products">
+      <h2>Что сегодня в корзине?</h2>
+      <div class="mailing-product-grid">
+        <div><img src="images/vegetables.jpg" alt="Салат, помидоры и огурцы" loading="lazy" width="120" height="120"><b>Овощи и фрукты</b><small>Яркие, сочные и свежие</small></div>
+        <div><img src="images/milk.jpg" alt="Молоко в пакете и бутылке" loading="lazy" width="120" height="120"><b>Фермерские продукты</b><small>Вкус и качество каждый день</small></div>
+        <div><img src="images/bread.jpg" alt="Буханка хлеба на закваске" loading="lazy" width="120" height="120"><b>Хлеб и выпечка</b><small>Аромат свежей выпечки</small></div>
+      </div>
+    </div>
+    <div class="mailing-bottom">
+      <h2>Ваш стол заслуживает лучшего</h2>
+      <p>Оформите заказ онлайн — доставка займёт всего около двух часов.</p>
+      <a class="btn" href="#catalog" onclick="navigate('home'); setTimeout(() => document.getElementById('catalog').scrollIntoView({behavior:'smooth'}), 50); return false;">Перейти в магазин</a>
+      <p class="mailing-small">Вы получили это письмо, потому что интересуетесь свежими продуктами и выгодными предложениями «Свежего стола».</p>
+    </div>
+  </article>
+</section>
+<!-- ================= СТРАНИЦА: ОФОРМЛЕНИЕ ================= -->
+<section class="page" id="page-checkout">
+  <div class="cart-wrap order-form" style="background:none; color:#1a0f2e">
+    <h1 style="margin-bottom:1rem">Оформление заказа</h1>
+    <form id="orderForm" novalidate>
+      <label for="fio">ФИО *</label>
+      <input type="text" id="fio" name="fio" required minlength="3"
+             placeholder="Иванов Иван Иванович">
+      <label for="phone">Телефон *</label>
+      <input type="tel" id="phone" name="phone" required
+             pattern="\+?[0-9\s\-()]{10,18}"
+             placeholder="+7 (900) 123-45-67">
+      <label for="email2">E-mail *</label>
+      <input type="email" id="email2" name="email" required
+             placeholder="you@example.com">
+      <label for="address">Адрес доставки *</label>
+      <input type="text" id="address" name="address" required
+             placeholder="г. Москва, ул. Ленина, д. 1, кв. 10">
+      <label for="comment">Комментарий</label>
+      <textarea id="comment" name="comment" rows="3"
+                placeholder="Позвонить за час до доставки"></textarea>
+      <button type="submit" class="btn">Подтвердить заказ</button>
+    </form>
+  </div>
+</section>
+</main>
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <p>© 2025 «Свежий стол». Все права защищены.</p>
+  <nav>
+    <a href="#">Контакты</a>
+    <a href="#">Политика конфиденциальности</a>
+  </nav>
+</footer>
+<script>
+/* ================= ДАННЫЕ ================= */
+const PRODUCTS = [
+  { id: 1, emoji: '🍎', img: 'images/apples.jpg', name: 'Яблоки «Гала», 1 кг',    price: 149, desc: 'Сладкие хрустящие яблоки сорта Гала. Без ГМО.' },
+  { id: 2, emoji: '🥛', img: 'images/milk.jpg', name: 'Молоко 3,2%, 1 л',       price: 89,  desc: 'Пастеризованное цельное молоко от местной фермы.' },
+  { id: 3, emoji: '🍞', img: 'images/bread.jpg', name: 'Хлеб бородинский, 400 г', price: 65,  desc: 'Классический бородинский хлеб на закваске.' },
+  { id: 4, emoji: '🍗', img: 'images/chicken.jpg', name: 'Куриное филе, 1 кг',      price: 349, desc: 'Охлаждённое филе без кожи и костей.' },
+  { id: 5, emoji: '🧀', img: 'images/cheese.jpg', name: 'Сыр «Гауда», 300 г',      price: 279, desc: 'Полутвёрдый сыр с ореховым вкусом.' },
+  { id: 6, emoji: '🥕', img: 'images/carrots.jpg', name: 'Морковь, 1 кг',           price: 59,  desc: 'Сочная морковь нового урожая.' },
+];
+/* Фото товара; если файла нет — показываем эмодзи */
+function productMedia(p, cls = '') {
+  return p.img
+    ? `<img ${cls ? `class="${cls}" ` : ''}src="${p.img}" alt="${p.name}" loading="lazy">`
+    : `<span class="emoji">${p.emoji}</span>`;
+}
+/* ================= СОСТОЯНИЕ ================= */
+let cart = {};
+let currentProductId = 1;
+/* ================= НАВИГАЦИЯ ================= */
+function navigate(page) {
+  const pageMeta = {
+    home: ['Свежий стол — каталог свежих продуктов', 'Каталог свежих продуктов: овощи, фрукты, молочные продукты, мясо и выпечка с доставкой.'],
+    product: ['Товар — Свежий стол', 'Подробная информация о выбранном продукте, его составе и цене.'],
+    cart: ['Корзина — Свежий стол', 'Проверьте выбранные продукты и итоговую стоимость заказа.'],
+    checkout: ['Оформление заказа — Свежий стол', 'Заполните данные для оформления и доставки заказа свежих продуктов.'],
+    newsletter: ['Рассылка — Свежий стол', 'Специальные предложения, свежие продукты недели и скидка на первый заказ.']
+  };
+  const meta = pageMeta[page] || pageMeta.home;
+  document.title = meta[0];
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.setAttribute('content', meta[1]);
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.main-nav a').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+  document.getElementById('mainNav').classList.remove('open');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (page === 'cart') renderCart();
+  if (page === 'checkout') renderCheckoutHint();
+}
+/* ================= КАТАЛОГ ================= */
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = PRODUCTS.map(p => `
+    <article class="card">
+      <figure onclick="openProduct(${p.id})" style="cursor:pointer">
+        ${productMedia(p)}
+      </figure>
+      <figcaption>${p.name}</figcaption>
+      <p class="price">${p.price} ₽</p>
+      <div class="actions">
+        <button class="btn" onclick="addToCart(${p.id})">В корзину</button>
+        <button class="btn ghost" onclick="openProduct(${p.id})">Подробнее</button>
+      </div>
+    </article>
+  `).join('');
+}
+function openProduct(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  currentProductId = id;
+  const pvImg = document.getElementById('pvImg');
+  pvImg.src = p.img || '';
+  pvImg.alt = p.name;
+  document.getElementById('pvName').textContent = p.name;
+  document.getElementById('pvDesc').textContent = p.desc;
+  document.getElementById('pvPrice').textContent = p.price + ' ₽';
+  navigate('product');
+}
+/* ================= КОРЗИНА ================= */
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  updateBadge();
+}
+function removeFromCart(id) {
+  delete cart[id];
+  updateBadge();
+  renderCart();
+}
+function changeQty(id, delta) {
+  if (!cart[id]) return;
+  cart[id] += delta;
+  if (cart[id] <= 0) delete cart[id];
+  updateBadge();
+  renderCart();
+}
+function updateBadge() {
+  const count = Object.values(cart).reduce((s, q) => s + q, 0);
+  document.getElementById('cartBadge').textContent = count;
+}
+function cartTotal() {
+  return Object.entries(cart).reduce((sum, [id, qty]) => {
+    const p = PRODUCTS.find(x => x.id == id);
+    return sum + (p ? p.price * qty : 0);
+  }, 0);
+}
+function renderCart() {
+  const tbody = document.getElementById('cartBody');
+  const entries = Object.entries(cart);
+  if (entries.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2.5rem; color:#888">
+      Корзина пуста. <a href="#" onclick="navigate('home');return false" style="color:#5e35b1; font-weight:600">Перейти в каталог</a>
+    </td></tr>`;
+    document.getElementById('cartTotal').textContent = '0 ₽';
+    return;
+  }
+  tbody.innerHTML = entries.map(([id, qty]) => {
+    const p = PRODUCTS.find(x => x.id == id);
+    return `
+      <tr>
+        <td>${productMedia(p, 'thumb')}</td>
+        <td>${p.name}</td>
+        <td>${p.price} ₽</td>
+        <td>
+          <div class="qty">
+            <button onclick="changeQty(${p.id}, -1)">−</button>
+            <span>${qty}</span>
+            <button onclick="changeQty(${p.id}, 1)">+</button>
+          </div>
+        </td>
+        <td>${p.price * qty} ₽</td>
+        <td><button class="btn ghost" style="padding:.25rem .7rem;font-size:.85rem"
+              onclick="removeFromCart(${p.id})">✕</button></td>
+      </tr>
+    `;
+  }).join('');
+  document.getElementById('cartTotal').textContent = cartTotal() + ' ₽';
+}
+/* ================= ОФОРМЛЕНИЕ ================= */
+function renderCheckoutHint() {
+  const total = cartTotal();
+  const form = document.getElementById('orderForm');
+  let hint = document.getElementById('checkoutHint');
+  if (!hint) {
+    hint = document.createElement('p');
+    hint.id = 'checkoutHint';
+    hint.style.cssText = 'text-align:center;margin-bottom:1.5rem;font-weight:700;font-size:1.2rem;color:#c62828';
+    form.parentNode.insertBefore(hint, form);
+  }
+  hint.textContent = total > 0
+    ? `Сумма к оплате: ${total} ₽`
+    : 'Корзина пуста — сначала добавьте товары.';
+}
+/* ================= ВАЛИДАЦИЯ ================= */
+function validateForm(form) {
+  let ok = true;
+  form.querySelectorAll('input, textarea').forEach(field => {
+    if (field.hasAttribute('required') && !field.value.trim()) {
+      field.style.borderColor = '#e53935';
+      ok = false;
+    } else if (field.type === 'email' && field.value && !/^\S+@\S+\.\S+$/.test(field.value)) {
+      field.style.borderColor = '#e53935';
+      ok = false;
+    } else {
+      field.style.borderColor = '#e0d8cc';
+    }
+  });
+  return ok;
+}
+document.getElementById('subscribeForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if (validateForm(e.target)) {
+    alert('Спасибо за подписку!');
+    e.target.reset();
+  }
+});
+document.getElementById('orderForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if (Object.keys(cart).length === 0) {
+    alert('Корзина пуста!');
+    return;
+  }
+  if (validateForm(e.target)) {
+    alert('Заказ оформлен! Сумма: ' + cartTotal() + ' ₽\nМы свяжемся с вами.');
+    cart = {};
+    updateBadge();
+    e.target.reset();
+    navigate('home');
+  }
+});
+/* ================= БУРГЕР ================= */
+document.getElementById('burger').addEventListener('click', () => {
+  document.getElementById('mainNav').classList.toggle('open');
+});
+/* ================= СТАРТ ================= */
+renderProducts();
+updateBadge();
+</script>
+</body>
+</html>
